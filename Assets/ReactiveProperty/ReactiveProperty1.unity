@@ -178,7 +178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "OnNext\u3068Subscribe\u30E1\u30BD\u30C3\u30C9\n\n\u30FBOnNext\n\u3000\u30A4\u30D9\u30F3\u30C8\u3092\u901A\u77E5\u3059\u308B\uFF08\u9001\u4FE1\uFF09\u3000\u203B\u4F55\u56DE\u3067\u3082\u53EF\u80FD\r\n\n\u30FBOnComplete\n\u3000\u30A4\u30D9\u30F3\u30C8\u306E\u7D42\u4E86\u3092\u901A\u77E5\u3059\u308B\u3000\u203B\u4E00\u5EA6\u306E\u307F\u53EF\u80FD\n\n\u30FBSubscribe\n\u3000OnNext\u306E\u30A4\u30D9\u30F3\u30C8\u3092\u8CFC\u8AAD\u3059\u308B\uFF08\u53D7\u4FE1\uFF09"
+  m_text: "ReactiveProperty\u306FSubject\uFF08\u30A4\u30D9\u30F3\u30C8\uFF09\u306E\u5024\u7248\u3067\u3059\n\u5024\u304C\u66F4\u65B0\u3055\u308C\u308B\u3068Subscript\u5148\uFF08\u8CFC\u8AAD\u8005\uFF09\u306B\u5909\u66F4\u5024\u3092\u9001\u4FE1\u3057\u307E\u3059\n\n\u30FBOnNext\n\u3000\u5024\u306E\u66F4\u65B0\u3092\u901A\u77E5\u3059\u308B\uFF08\u9001\u4FE1\uFF09\n\u3000\u203B\u540C\u3058\u5024\u3092\u4EE3\u5165\u3057\u305F\u5834\u5408\u306F\u9001\u4FE1\u3055\u308C\u307E\u305B\u3093\r\n\n\u30FBOnComplete\n\u3000\u7D42\u4E86\u3092\u901A\u77E5\u3059\u308B\u3000\u203B\u4E00\u5EA6\u306E\u307F\u53EF\u80FD\n\n\u30FBSubscribe\n\u3000OnNext\u306E\u30A4\u30D9\u30F3\u30C8\u3092\u8CFC\u8AAD\u3059\u308B\uFF08\u53D7\u4FE1\uFF09"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: efca176e2c33c8346a5bbabbcaaf26a0, type: 2}
   m_sharedMaterial: {fileID: -7873800490721496810, guid: efca176e2c33c8346a5bbabbcaaf26a0, type: 2}
@@ -508,8 +508,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1535325661}
-  - component: {fileID: 1535325662}
   - component: {fileID: 1535325663}
+  - component: {fileID: 1535325662}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1535325660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1498b51f7852a6d49b3c10c096a0665f, type: 3}
+  m_Script: {fileID: 11500000, guid: 09023a223223baa478fb9a573abbf57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1535325663
@@ -553,10 +553,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1535325660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86ae78cc513e4466b7ebcc909b59d570, type: 3}
+  m_Script: {fileID: 11500000, guid: e65d28063feef8d4c9d3ff0c10450416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 1535325662}
 --- !u!1 &1784526669
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +718,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Subject\u306E\u57FA\u672C1"
+  m_text: "ReactiveProperty\u306E\u57FA\u672C1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: efca176e2c33c8346a5bbabbcaaf26a0, type: 2}
   m_sharedMaterial: {fileID: -7873800490721496810, guid: efca176e2c33c8346a5bbabbcaaf26a0, type: 2}

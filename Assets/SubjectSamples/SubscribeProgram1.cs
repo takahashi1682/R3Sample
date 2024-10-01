@@ -24,7 +24,7 @@ namespace SubjectSamples
                         // OnCompleteが呼ばれた時の処理
                         Debug.Log("OnComplete");
                     })
-                .AddTo(this);
+                .AddTo(this); // このコンポーネントが破棄されたら購読を解除
         }
     }
 }

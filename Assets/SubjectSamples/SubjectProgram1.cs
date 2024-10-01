@@ -16,15 +16,12 @@ namespace SubjectSamples
         private void Start()
         {
             // このコンポーネントが破棄されたらイベントの発行を終了
-            UpdateSubject.AddTo(this);
+            // この処理を書かないとオブジェクトが破棄された後も処理が動き続ける→メモリーリークの原因になる
+            _updateSubject.AddTo(this);
         }
 
         private void Update()
         {
-            // このコンポーネントが破棄されたらイベントの発行を終了
-            // この処理を書かないとオブジェクトが破棄された後も処理が動き続ける→メモリーリークの原因になる
-            UpdateSubject.AddTo(this);
-            
             // イベントを発行
             // 第一引数は購読者に送るデータ（特になければUnit.Default）を指定する
             UpdateSubject.OnNext(Unit.Default);

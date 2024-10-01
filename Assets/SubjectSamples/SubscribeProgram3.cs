@@ -15,9 +15,9 @@ namespace SubjectSamples
             // SubjectProgramのTimerSubjectを購読する
             _target.TimerSubject
                 .Subscribe(
-                    onNext: x => Debug.Log($"{x}s"),
+                    x => Debug.Log($"{x}s"),
                     onCompleted: _ => Debug.Log("OnCompleted"),
-                    
+
                     // onErrorResume: x => Debug.LogError(x)) // 省略前
                     // 呼び出すメソッドが一つで引数も一つの場合以下のように省略できる
                     onErrorResume: Debug.LogError

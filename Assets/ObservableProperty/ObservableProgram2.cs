@@ -12,6 +12,16 @@ namespace ObservableProperty
     {
         private void Awake()
         {
+            // 5から始まる3つの数値を通知する
+            Observable.Range(5, 3)
+                .Subscribe(x => Debug.Log($"Range: {x}"))
+                .AddTo(this);
+
+            // Helloを10回通知する
+            Observable.Repeat("Hello", 10)
+                .Subscribe(x => Debug.Log($"Repeat: {x}"))
+                .AddTo(this);
+
             // 3秒後に処理を実行
             Observable
                 .Timer(TimeSpan.FromSeconds(3))

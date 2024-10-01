@@ -16,7 +16,7 @@ namespace SubjectSamples
             _target.TimerSubject
                 .Subscribe(
                     // onNext発行時に指定された引数はxで取得できる
-                    onNext: x => Debug.Log($"{x}s"))
+                    x => Debug.Log($"{x}s"))
                 .AddTo(this);
         }
     }
