@@ -1,3 +1,0 @@
-1
-Observable.Interval(TimeSpan.FromSeconds(1))
-                .Subscribe(_ => _health.Value = Mathf.Max(0, _health.Value - 100)).AddTo(this);

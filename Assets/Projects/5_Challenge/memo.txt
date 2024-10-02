@@ -1,0 +1,2 @@
+Observable.Interval(TimeSpan.FromSeconds(1))
+                .Subscribe(_ => SetClampHealth(_health.Value - 100)).AddTo(this);
