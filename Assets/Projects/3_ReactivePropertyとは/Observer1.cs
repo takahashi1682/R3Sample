@@ -1,14 +1,14 @@
 using R3;
 using UnityEngine;
 
-namespace _3_ReactiveProperty
+namespace Projects._3_ReactiveProperty
 {
     /// <summary>
-    /// イベントを購読(Subscribe)するクラス
+    /// イベントを監視(Observer)するクラス
     /// </summary>
-    public class SubscribeProgram1 : MonoBehaviour
+    public class Observer1 : MonoBehaviour
     {
-        [SerializeField] private ReactivePropertyProgram1 _program1;
+        [SerializeField] private ReactiveProperty1 _program1;
 
         private void Awake()
         {

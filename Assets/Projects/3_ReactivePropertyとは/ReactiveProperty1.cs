@@ -2,12 +2,12 @@ using System;
 using R3;
 using UnityEngine;
 
-namespace _3_ReactiveProperty
+namespace Projects._3_ReactiveProperty
 {
     /// <summary>
     /// イベントを発行するクラス
     /// </summary>
-    public class ReactivePropertyProgram1 : MonoBehaviour
+    public class ReactiveProperty1 : MonoBehaviour
     {
         // Inspectorに表示する場合の宣言の仕方
         [SerializeField] private SerializableReactiveProperty<int> _count1 = new(0);
@@ -30,7 +30,7 @@ namespace _3_ReactiveProperty
                 .Subscribe(_ => // ストリームを購読
                 {
                     // 値が変わるとonNextが呼ばれる → 購読しているSubscribeが呼ばれる
-                    _count1.Value++; 
+                    _count1.Value++;
                     _count2.Value++;
                 })
                 .AddTo(this);
