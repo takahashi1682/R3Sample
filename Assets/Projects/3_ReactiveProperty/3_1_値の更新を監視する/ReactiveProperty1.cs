@@ -2,7 +2,7 @@ using System;
 using R3;
 using UnityEngine;
 
-namespace Projects._3_ReactiveProperty
+namespace Projects._3_ReactiveProperty._3_1_値の更新を監視する
 {
     /// <summary>
     /// イベントを発行するクラス
