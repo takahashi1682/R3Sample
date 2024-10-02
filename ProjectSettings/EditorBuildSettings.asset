@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Projects/1_SubjectSamples/Subject1.unity
+    path: "Assets/Projects/2_Subject/2_1_\u30C7\u30FC\u30BF\u3092\u767A\u884C\u3059\u308B/Subject1.unity"
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
