@@ -8,14 +8,14 @@ using UnityEngine.UI;
 
 namespace Projects._4_Operator
 {
-    public class OperatorProgram3ThrottleFirst : MonoBehaviour, ISliderBinder
+    public class OperatorProgram3ThrottleFirst : MonoBehaviour, IBinderRate
     {
         [SerializeField] private float _waitSeconds = 3;
         [SerializeField] private Button _button;
         private TextMeshProUGUI _text;
 
         private readonly SerializableReactiveProperty<float> _progress = new();
-        public ReadOnlyReactiveProperty<float> SliderValue => _progress;
+        public ReadOnlyReactiveProperty<float> Rate => _progress;
 
         public void Start()
         {
