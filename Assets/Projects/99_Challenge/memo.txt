@@ -7,3 +7,9 @@ _recovery.Subscribe(x => _health.Add(x)).AddTo(this);
 
 問3
 .ThrottleFirst(TimeSpan.FromSeconds(1))
+
+問4
+.Select(x => x * 3)
+
+問5
+[SerializeField] private SerializableReactiveProperty<int> _count = new(1000);
