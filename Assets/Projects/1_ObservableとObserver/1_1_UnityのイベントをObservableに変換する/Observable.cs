@@ -1,3 +1,4 @@
+using System;
 using R3;
 using R3.Triggers;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace Projects._1_ObserverとObserver._1_1_UnityのイベントをObservable
     public class Observable : MonoBehaviour
     {
         [SerializeField] private GameObject _target;
-
+        
         private void Awake()
         {
             // R3ではUnityの様々なイベントをObservableに変換することが出来ます

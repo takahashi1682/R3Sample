@@ -16,7 +16,7 @@ namespace Projects._2_Subject._2_4_ReplaySubjectとは
 
             TestSubject.OnNext(0);
             TestSubject.OnNext(1);
-            TestSubject.OnNext(3);
+            TestSubject.OnNext(2);
 
             Debug.Log("通知完了");
         }

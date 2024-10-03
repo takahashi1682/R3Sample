@@ -17,11 +17,11 @@ namespace Projects._2_Subject._2_3_Observableの終了とエラーを監視す�
                 {
                     // OnNext
                     Debug.Log(x);
-                }, ex =>
+                }, onErrorResume: error =>
                 {
                     // OnErrorResume
-                    Debug.LogError(ex);
-                }, _ =>
+                    Debug.LogError(error);
+                }, onCompleted: _ =>
                 {
                     // OnCompleted
                     Debug.Log("OnCompleted");
