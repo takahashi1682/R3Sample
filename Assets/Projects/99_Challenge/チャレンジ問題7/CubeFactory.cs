@@ -1,9 +1,11 @@
 using UnityEngine;
+using R3;
 
-namespace Projects._99_Challenge.チャレンジ問題6
+namespace Projects._99_Challenge.チャレンジ問題7
 {
-    public class Challenge : MonoBehaviour
+    public class CubeFactory : MonoBehaviour
     {
+        [SerializeField] private Challenge _challenge;
         [SerializeField] private GameObject _cubePrefab;
 
         private void Start()

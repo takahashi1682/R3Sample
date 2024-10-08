@@ -21,3 +21,24 @@ Observable.Interval(TimeSpan.FromSeconds(1))
         var pos = new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f));
         Instantiate(_cubePrefab, pos, Quaternion.identity);
     }).AddTo(this);
+問7
+using UnityEngine;
+using R3;
+
+namespace Projects._99_Challenge.チャレンジ問題7
+{
+    public class CubeFactory : MonoBehaviour
+    {
+        [SerializeField] private Challenge _challenge;
+        [SerializeField] private GameObject _cubePrefab;
+
+        private void Start()
+        {
+            _challenge.Count.Where(x => x % 2 == 0).Subscribe(_ =>
+            {
+                var pos = new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f));
+                Instantiate(_cubePrefab, pos, Quaternion.identity);
+            }).AddTo(this);
+        }
+    }
+}
