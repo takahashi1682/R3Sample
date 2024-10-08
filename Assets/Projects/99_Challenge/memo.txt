@@ -13,3 +13,11 @@ _recovery.Subscribe(x => _health.Add(x)).AddTo(this);
 
 問5
 [SerializeField] private SerializableReactiveProperty<int> _count = new(1000);
+
+問6
+Observable.Interval(TimeSpan.FromSeconds(1))
+    .Subscribe(_ =>
+    {
+        var pos = new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f));
+        Instantiate(_cubePrefab, pos, Quaternion.identity);
+    }).AddTo(this);
