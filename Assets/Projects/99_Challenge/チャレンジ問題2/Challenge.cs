@@ -23,10 +23,18 @@ namespace Projects._99_Challenge.チャレンジ問題2
             _damage.AddTo(this);
             _recovery.AddTo(this);
             // -- ここに処理を追加してください --
-
         }
 
-        public void OnDamage(int value) => _damage.OnNext(value);
-        public void OnRecovery(int value) => _recovery.OnNext(value);
+        /// <summary>
+        /// ダメージボタンの押下処理
+        /// </summary>
+        /// <param name="value"></param>
+        public void OnDamageButtonClicked(int value) => _damage.OnNext(value);
+
+        /// <summary>
+        /// 回復ボタンの押下処理
+        /// </summary>
+        /// <param name="value"></param>
+        public void OnRecoveryButtonClicked(int value) => _recovery.OnNext(value);
     }
 }

@@ -564,7 +564,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 458050094}
         m_TargetAssemblyTypeName: _5_Challenge.Challenge2.Challenge2, Assembly-CSharp
-        m_MethodName: OnDamage
+        m_MethodName: OnDamageButtonClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1233,7 +1233,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 458050094}
         m_TargetAssemblyTypeName: _5_Challenge.Challenge2.Challenge2, Assembly-CSharp
-        m_MethodName: OnDamage
+        m_MethodName: OnDamageButtonClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1969,7 +1969,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 458050094}
         m_TargetAssemblyTypeName: _5_Challenge.Challenge2.Challenge2, Assembly-CSharp
-        m_MethodName: OnRecovery
+        m_MethodName: OnRecoveryButtonClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
