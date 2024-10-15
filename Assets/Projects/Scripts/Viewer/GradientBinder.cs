@@ -11,14 +11,14 @@ namespace Projects.Viewer
     [RequireComponent(typeof(Graphic))]
     public class GradientBinder : MonoBehaviour
     {
-        [SerializeField] private SerializableInterface<IBinderRate> _target;
+        [SerializeField] private SerializableInterface<ISliderBinder> _target;
         [SerializeField] private Gradient _gradient;
 
         private void Start()
         {
             if (TryGetComponent<Graphic>(out var graphic))
             {
-                _target.Value.Rate.Subscribe(x => graphic.color = _gradient.Evaluate(x)).AddTo(this);
+                _target.Value.SliderValue.Subscribe(x => graphic.color = _gradient.Evaluate(x)).AddTo(this);
             }
         }
     }

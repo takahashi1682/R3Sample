@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Projects._50_SerializeInterface
+namespace Projects._50_SerializeInterface.概要
 {
     /// <summary>
     /// 全ての人間の基底クラス

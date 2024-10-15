@@ -11,13 +11,13 @@ namespace Projects.Viewer
     [RequireComponent(typeof(Slider))]
     public class SliderBinder : MonoBehaviour
     {
-        [SerializeField] private SerializableInterface<IBinderRate> _target;
+        [SerializeField] private SerializableInterface<ISliderBinder> _target;
 
         private void Start()
         {
             if (TryGetComponent<Slider>(out var slider))
             {
-                _target.Value.Rate.Subscribe(x => slider.value = x).AddTo(this);
+                _target.Value.SliderValue.Subscribe(x => slider.value = x).AddTo(this);
             }
         }
     }

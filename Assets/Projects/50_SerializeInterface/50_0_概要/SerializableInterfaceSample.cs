@@ -1,7 +1,7 @@
 using TNRD;
 using UnityEngine;
 
-namespace Projects._50_SerializeInterface
+namespace Projects._50_SerializeInterface.概要
 {
     // インターフェイス（機能）
     public interface ICharacter
@@ -12,6 +12,7 @@ namespace Projects._50_SerializeInterface
     public class SerializableInterfaceSample : MonoBehaviour
     {
         // インターフェイスをシリアライズするためのクラス(Inspectorから設定可能)
+        // ICharacterを継承しているクラスなら何でも設定可能!!
         [SerializeField] private SerializableInterface<ICharacter>[] _characters;
 
         private void Start()
