@@ -17,7 +17,7 @@ namespace Projects.Viewer
         {
             if (TryGetComponent<Slider>(out var slider))
             {
-                _target.Value.SliderValue.Subscribe(x => slider.value = x).AddTo(this);
+                _target.Value.BindSlider.Subscribe(x => slider.value = x).AddTo(this);
             }
         }
     }

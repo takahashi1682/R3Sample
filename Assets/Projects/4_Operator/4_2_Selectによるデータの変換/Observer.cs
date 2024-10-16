@@ -10,7 +10,7 @@ namespace Projects._4_Operator._4_2_Selectによるデータの変換
 
         // UI表示用の変数
         private readonly ReactiveProperty<string> _value = new();
-        public ReadOnlyReactiveProperty<string> Text => _value;
+        public ReadOnlyReactiveProperty<string> BindText => _value;
 
         private void Start()
         {

@@ -10,7 +10,7 @@ namespace Projects._99_Challenge.チャレンジ問題5
         private readonly ReactiveProperty<int> _count = new(1000);
 
         // UI表示用
-        public ReadOnlyReactiveProperty<string> Text => _count.Select(x => x.ToString()).ToReadOnlyReactiveProperty();
+        public ReadOnlyReactiveProperty<string> BindText => _count.Select(x => x.ToString()).ToReadOnlyReactiveProperty();
 
         private void Awake()
         {

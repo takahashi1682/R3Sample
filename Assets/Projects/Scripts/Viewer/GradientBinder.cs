@@ -18,7 +18,7 @@ namespace Projects.Viewer
         {
             if (TryGetComponent<Graphic>(out var graphic))
             {
-                _target.Value.SliderValue.Subscribe(x => graphic.color = _gradient.Evaluate(x)).AddTo(this);
+                _target.Value.BindSlider.Subscribe(x => graphic.color = _gradient.Evaluate(x)).AddTo(this);
             }
         }
     }

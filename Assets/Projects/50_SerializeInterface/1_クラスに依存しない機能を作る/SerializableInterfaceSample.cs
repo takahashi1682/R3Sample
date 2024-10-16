@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Projects._50_SerializeInterface._50_1_クラスに依存しない機能を作る
+namespace Projects._50_SerializeInterface._1_クラスに依存しない機能を作る
 {
     public class SerializableInterfaceSample : MonoBehaviour, ITextBinder
     {

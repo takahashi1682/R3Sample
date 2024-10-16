@@ -11,7 +11,7 @@ namespace Projects._4_Operator._4_4_TakeWhileによる
         private int _frameCount;
 
         // UI表示用
-        public ReadOnlyReactiveProperty<string> Text =>
+        public ReadOnlyReactiveProperty<string> BindText =>
             UpdateSubject.Select(x => x.ToString()).ToReadOnlyReactiveProperty();
 
         private void Start()

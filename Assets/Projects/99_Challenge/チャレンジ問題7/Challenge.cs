@@ -11,7 +11,7 @@ namespace Projects._99_Challenge.チャレンジ問題7
         public ReadOnlyReactiveProperty<int> Count => _count;
 
         // UI表示用
-        public ReadOnlyReactiveProperty<string> Text => _count.Select(x => x.ToString()).ToReadOnlyReactiveProperty();
+        public ReadOnlyReactiveProperty<string> BindText => _count.Select(x => x.ToString()).ToReadOnlyReactiveProperty();
 
         private void Start()
         {

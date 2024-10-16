@@ -7,7 +7,7 @@ namespace Projects.Viewer
 {
     public interface ITextBinder
     {
-        ReadOnlyReactiveProperty<string> Text { get; }
+        ReadOnlyReactiveProperty<string> BindText { get; }
     }
 
     /// <summary>
@@ -23,7 +23,7 @@ namespace Projects.Viewer
         {
             if (TryGetComponent<TextMeshProUGUI>(out var text))
             {
-                _target.Value.Text.Subscribe(x => text.text = string.Format(_textFormat, x)).AddTo(this);
+                _target.Value.BindText.Subscribe(x => text.text = string.Format(_textFormat, x)).AddTo(this);
             }
         }
     }

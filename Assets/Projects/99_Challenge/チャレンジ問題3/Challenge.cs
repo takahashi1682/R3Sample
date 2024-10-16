@@ -17,10 +17,10 @@ namespace Projects._99_Challenge.チャレンジ問題3
         private Vector3 _endPos;
 
         // UI表示用
-        public ReadOnlyReactiveProperty<string> Text =>
+        public ReadOnlyReactiveProperty<string> BindText =>
             Observable.CombineLatest(_health.Current, _health.Max).Select(p => $"{p[0]} / {p[1]}")
                 .ToReadOnlyReactiveProperty();
-        public ReadOnlyReactiveProperty<float> SliderValue => _health.Rate.ToReadOnlyReactiveProperty();
+        public ReadOnlyReactiveProperty<float> BindSlider => _health.Rate.ToReadOnlyReactiveProperty();
 
         private void Start()
         {
