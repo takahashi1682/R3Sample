@@ -39,6 +39,8 @@ namespace Projects._10_Observableの合成._10_3_Zip
             _subject2.OnNext(4); // 流れない
             _subject1.OnNext(5); // next: 5.  >  next: 3.
             
+            
+            
             _subject1.OnCompleted();
             _subject2.OnCompleted(); // completed.
         }

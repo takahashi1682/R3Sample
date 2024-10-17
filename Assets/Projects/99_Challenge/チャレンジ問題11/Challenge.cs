@@ -26,10 +26,6 @@ namespace Projects._99_Challenge.チャレンジ問題11
             _message.AddTo(this);
 
             // ----------ここに処理追加--------------
-            Observable
-                .ZipLatest(_player, _enemy)
-                .Subscribe(x => Jagged(x[0], x[1]))
-                .AddTo(this);
         }
         
         /// <summary>
