@@ -359,6 +359,8 @@ GameObject:
   m_Component:
   - component: {fileID: 458050093}
   - component: {fileID: 458050094}
+  - component: {fileID: 458050096}
+  - component: {fileID: 458050095}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -394,7 +396,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characters:
-    mode: 0
+  - mode: 0
+    unityReference: {fileID: 0}
+    rawReference:
+      rid: -2
+  - mode: 0
     unityReference: {fileID: 0}
     rawReference:
       rid: -2
@@ -403,6 +409,30 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!114 &458050095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458050092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: accd6ff48b014c43a07ba93151415048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &458050096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458050092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c509e53891aa6f40978949722f7bd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &477042587
 GameObject:
   m_ObjectHideFlags: 0
