@@ -470,8 +470,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blockPrefab: {fileID: 702777179098422275, guid: 21b06f23b05054e45bc386abbd4a8cd9, type: 3}
   _spawnHeight: -3.3
-  _width: 5
-  _height: 5
+  _width: 10
+  _height: 3
   _spawnInterval: 0.1
 --- !u!1 &477042587
 GameObject:
