@@ -46,7 +46,7 @@ namespace Projects._99_Challenge.チャレンジ問題31
 
             // タスク実行
 
-            // フラグをリセット
+            // フラグをセット
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Projects._99_Challenge.チャレンジ問題31
             // キャンセルトークンをキャンセル
         }
 
-        private async UniTask Test(CancellationTokenSource token)
+        private async UniTask TimerTask(CancellationTokenSource token)
         {
             // 一定時間経過するまでループ
             // while ( && !token.IsCancellationRequested)
