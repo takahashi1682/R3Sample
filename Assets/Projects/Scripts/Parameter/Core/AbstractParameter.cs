@@ -1,3 +1,4 @@
+using Projects.Viewer;
 using R3;
 using UnityEditor;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace Projects.Parameter.Core
     /// <summary>
     /// 汎用的なパラメータクラス
     /// </summary>
-    public abstract class AbstractParameter : MonoBehaviour, IParameter
+    public abstract class AbstractParameter : MonoBehaviour, IParameter, ISliderBinder
     {
         [SerializeField] protected SerializableReactiveProperty<float> _max = new(1000);
         [SerializeField] protected SerializableReactiveProperty<float> _current = new(1000);
@@ -30,6 +31,7 @@ namespace Projects.Parameter.Core
         public ReadOnlyReactiveProperty<float> Current => _current;
         public ReadOnlyReactiveProperty<float> Rate
             => _current.Select(v => v / _max.Value).ToReadOnlyReactiveProperty();
+        public ReadOnlyReactiveProperty<float> BindSlider => Rate;
 
         protected void Awake()
         {
