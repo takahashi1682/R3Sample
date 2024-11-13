@@ -37,9 +37,10 @@ namespace Projects._99_Challenge.チャレンジ問題100
                 ? Time.deltaTime * _upSpeed
                 : Time.deltaTime * _downSpeed;
 
-            // ①上下の移動範囲を制限
+            // ①上下の移動範囲を制限(1行)
 
-            // ②_startPositionを基準に移動する
+            // ②_startPositionを基準に_y分移動する(1行)
+            
         }
     }
 }

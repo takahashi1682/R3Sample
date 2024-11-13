@@ -22,7 +22,7 @@ namespace Projects._99_Challenge.チャレンジ問題100
         {
             while (!token.IsCancellationRequested)
             {
-                // ①画像を切り替える
+                // ①画像を切り替える(1行)
 
                 await UniTask.Delay(_delayMilliSeconds, cancellationToken: token);
             }

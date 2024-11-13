@@ -12,7 +12,8 @@ namespace Projects._99_Challenge.チャレンジ問題100
 
         private void Start()
         {
-            // ①PlayerMoverのIsFlayの値が変更されたら、SpriteAnimationのFlameRateを変更する
+            // ①PlayerMoverのIsFlayの値が変更されたら、SpriteAnimationのFlameRateを変更する(1行程度)
+            
         }
     }
 }
