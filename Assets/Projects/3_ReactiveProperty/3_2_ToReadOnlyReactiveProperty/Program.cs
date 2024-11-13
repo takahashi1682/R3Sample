@@ -9,8 +9,8 @@ namespace Projects._3_ReactiveProperty._3_2_ToReadOnlyReactiveProperty
         [SerializeField] private SerializableReactiveProperty<float> _maxHeath = new(100);
 
         // 通常のReactivePropertyを使う場合
-        public ReactiveProperty<float> CurrentHeath => _currentHeath;
-        public ReactiveProperty<float> MaxHeath => _maxHeath;
+        public ReadOnlyReactiveProperty<float> CurrentHeath => _currentHeath;
+        public ReadOnlyReactiveProperty<float> MaxHeath => _maxHeath;
 
         // 体力の割合を返すプロパティ
         private ReadOnlyReactiveProperty<float> _rate;
