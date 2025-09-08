@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: "Assets/Projects/2_Subject/2_1_\u30C7\u30FC\u30BF\u3092\u767A\u884C\u3059\u308B/Subject1.unity"
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: "Assets/Projects/30_UniTask/30_7_\u30D0\u30C3\u30AF\u30B0\u30E9\u30A6\u30F3\u30C9\u3067\u5225\u30B7\u30FC\u30F3\u3092\u30ED\u30FC\u30C9\u3059\u308B/NextScene.unity"
+    path: "Assets/_Projects/30_UniTask/30_7_\u30D0\u30C3\u30AF\u30B0\u30E9\u30A6\u30F3\u30C9\u3067\u5225\u30B7\u30FC\u30F3\u3092\u30ED\u30FC\u30C9\u3059\u308B/NextScene.unity"
     guid: fb9201d6127b3c743a265e4b75c7fd57
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
