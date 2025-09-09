@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace _Projects.Utils.Editor
+namespace _Projects.Editor
 {
     public class SceneOpenWindow : EditorWindow
     {
@@ -13,10 +13,10 @@ namespace _Projects.Utils.Editor
             GetWindow<SceneOpenWindow>("Scene Open Window");
         }
 
-        private string[] _allScenePaths; // 全シーンのパス
-        private string _filterText = "Assets/_Projects/Scenes/"; // 入力されたフィルター文字列
+        private string[] _allScenePaths;
+        private string _filterText = "Assets/_Projects/Scenes/";
         private GUIStyle _buttonStyle;
-        private GUIContent _sceneIconContent;
+        private Vector2 _scrollPosition; // スクロール位置を管理する変数
 
         private void OnEnable() => RefreshSceneList();
 
@@ -24,7 +24,6 @@ namespace _Projects.Utils.Editor
         {
             _buttonStyle ??= CreateButtonStyle();
 
-            // ボタンスタイルがnullの時がある
             if (_buttonStyle == null) return;
 
             // フィルター入力フィールド
@@ -36,15 +35,18 @@ namespace _Projects.Utils.Editor
             if (GUILayout.Button("Refresh")) RefreshSceneList();
             EditorGUILayout.Space();
 
-            var displayedScenes = string.IsNullOrEmpty(_filterText)
+            // ここからスクロールビューを開始
+            _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition);
+
+            string[] displayedScenes = string.IsNullOrEmpty(_filterText)
                 ? _allScenePaths
                 : System.Array.FindAll(_allScenePaths, path => path.ToLower().Contains(_filterText.ToLower()));
 
             var sceneIconContent = EditorGUIUtility.IconContent("SceneAsset Icon");
 
-            foreach (var scenePath in displayedScenes)
+            foreach (string scenePath in displayedScenes)
             {
-                var label = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+                string label = System.IO.Path.GetFileNameWithoutExtension(scenePath);
                 var content = new GUIContent(label, sceneIconContent.image);
 
                 if (GUILayout.Button(content, _buttonStyle))
@@ -55,13 +57,16 @@ namespace _Projects.Utils.Editor
                     }
                 }
             }
+
+            // ここでスクロールビューを終了
+            EditorGUILayout.EndScrollView();
         }
 
         private void RefreshSceneList()
         {
-            var guids = AssetDatabase.FindAssets("t:Scene");
+            string[] guids = AssetDatabase.FindAssets("t:Scene");
             _allScenePaths = new string[guids.Length];
-            for (var i = 0; i < guids.Length; i++)
+            for (int i = 0; i < guids.Length; i++)
             {
                 _allScenePaths[i] = AssetDatabase.GUIDToAssetPath(guids[i]);
             }

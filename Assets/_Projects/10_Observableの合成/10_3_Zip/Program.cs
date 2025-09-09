@@ -15,7 +15,7 @@ namespace _Projects._10_Observableの合成._10_3_Zip
             _subject2.AddTo(this);
 
             // 2つのSubjectを合成して購読する
-            var subject = Observable
+            Observable
                 .Zip(
                     _subject1,
                     _subject2

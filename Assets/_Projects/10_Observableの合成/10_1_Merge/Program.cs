@@ -15,7 +15,7 @@ namespace _Projects._10_Observableの合成._10_1_Merge
             _subject2.AddTo(this);
 
             // 2つのSubjectを合成して購読する
-            var subject = Observable
+            Observable
                 .Merge(_subject1, _subject2)
                 .Subscribe(
                     onNext: x => Debug.Log($"next: {x}"),

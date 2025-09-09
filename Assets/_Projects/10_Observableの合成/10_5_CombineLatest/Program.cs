@@ -15,7 +15,7 @@ namespace _Projects._10_Observableの合成._10_5_CombineLatest
             _subject2.AddTo(this);
 
             // 2つのSubjectを合成して購読する
-            var subject = Observable
+            Observable
                 .CombineLatest(
                     _subject1,
                     _subject2

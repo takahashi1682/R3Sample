@@ -15,7 +15,7 @@ namespace _Projects._10_Observableの合成._10_2_Concat
             _subject2.AddTo(this);
 
             // 2つのSubjectを合成して購読する
-            var subject = Observable
+            Observable
                 .Concat(
                     _subject1, // 順序1
                     _subject2 // 順序2(1が完了した後に流れる)
