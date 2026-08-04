@@ -26,7 +26,7 @@ namespace _Projects._50_SerializableInterface._2_クラスに依存しない機�
             _value.AddTo(this);
 
             // 値が更新されたらUIに反映する
-            // _text.Subscribe(x => _textComponent.text = x).AddTo(this);
+            // _bindText.Subscribe(x => _textComponent.text = x).AddTo(this);
             // _value.Subscribe(x => _slider.value = x).AddTo(this);
         }
     }

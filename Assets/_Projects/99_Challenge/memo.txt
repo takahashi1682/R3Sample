@@ -42,3 +42,36 @@ namespace Projects._99_Challenge.チャレンジ問題7
         }
     }
 }
+
+問12
+Observable.CombineLatest(_playerReady, _enemyReady)
+    .Where(x => x[0] && x[1])
+    .Subscribe(_ => Debug.Log("Battle Start!")).AddTo(this);
+
+問13
+private async UniTask RunWithRetry(CancellationToken token)
+{
+    for (var i = 0; i < _maxRetryCount; i++)
+    {
+        var isSuccess = await TryProcessAsync(token);
+        if (isSuccess) return;
+    }
+
+    Debug.Log("失敗しました");
+}
+
+問14
+private void AddStatus(EStatusEffect status)
+{
+    _currentStatus |= status;
+}
+
+private void RemoveStatus(EStatusEffect status)
+{
+    _currentStatus &= ~status;
+}
+
+private bool HasStatus(EStatusEffect status)
+{
+    return _currentStatus.HasFlag(status);
+}

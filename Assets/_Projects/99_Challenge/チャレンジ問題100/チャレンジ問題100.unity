@@ -1425,7 +1425,7 @@ MonoBehaviour:
   - {fileID: -1530743041, guid: c16273339f090884485f3c047fbfa9f9, type: 3}
   - {fileID: -126516845, guid: c16273339f090884485f3c047fbfa9f9, type: 3}
   - {fileID: -1310070095, guid: c16273339f090884485f3c047fbfa9f9, type: 3}
-  _flameRate: 10
+  _frameRate: 10
 --- !u!114 &1644475437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1440,8 +1440,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMover: {fileID: 1644475433}
   _animation: {fileID: 1644475436}
-  _defaultFlameRate: 10
-  _flayFlameRate: 40
+  _defaultFrameRate: 10
+  _flyingFrameRate: 40
 --- !u!1 &1784526669
 GameObject:
   m_ObjectHideFlags: 0

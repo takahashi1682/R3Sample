@@ -27,13 +27,13 @@ namespace _Projects._99_Challenge.チャレンジ問題11
 
             // ----------ここに処理追加--------------
         }
-        
+
         /// <summary>
         ///  じゃんけんの勝敗を判定する
         /// </summary>
         /// <param name="player"></param>
         /// <param name="enemy"></param>
-        private void Jagged(EJanken player, EJanken enemy)
+        private void Judge(EJanken player, EJanken enemy)
         {
             var result = (3 + enemy - player) % 3;
             _message.OnNext(result switch

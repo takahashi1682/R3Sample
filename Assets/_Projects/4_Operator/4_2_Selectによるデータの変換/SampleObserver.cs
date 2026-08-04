@@ -14,6 +14,8 @@ namespace _Projects._4_Operator._4_2_Selectによるデータの変換
 
         private void Start()
         {
+            _value.AddTo(this); // このコンポーネントが破棄されたら_valueも破棄する（メモリーリーク防止）
+
             _target.UpdateSubject
                 .Select(x => x.ToString("N0")) // 受け取った値をカンマ区切りの文字列に変換
                 .Subscribe(x => _value.Value = x)

@@ -35,9 +35,9 @@ namespace _Projects._10_Observableの合成._10_5_CombineLatest
             // それぞれのSubjectにデータを流す
             _subject1.OnNext(1); // 流れない
             _subject2.OnNext(2); // next: 1.  >  next: 2.
-            
+
             _subject2.OnNext(3); // next: 1.  >  next: 3.
-            
+
             _subject1.OnCompleted();
             _subject2.OnCompleted(); // completed.
         }

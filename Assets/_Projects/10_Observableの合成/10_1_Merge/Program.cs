@@ -23,12 +23,13 @@ namespace _Projects._10_Observableの合成._10_1_Merge
                 ).AddTo(this);
 
             // それぞれのSubjectにデータを流す
-            _subject1.OnNext("Subject1に流した値"); // next: 0.
-            _subject2.OnNext("Subject2に流した値"); // next: 1.
+            _subject1.OnNext("Subject1に流した値"); // next: Subject1に流した値
+            _subject2.OnNext("Subject2に流した値"); // next: Subject2に流した値
 
             // それぞれのSubjectを完了する
+            // Mergeは合成元のSubjectがすべて完了した時点でcompleted.が呼ばれる
             _subject1.OnCompleted();
-            _subject2.OnCompleted(); // (既に完了してるので、2回目は呼ばれない）
+            _subject2.OnCompleted();
         }
     }
 }

@@ -34,7 +34,7 @@ namespace _Projects._10_Observableの合成._10_4_ZipLastest
             // それぞれのSubjectにデータを流す
             _subject1.OnNext(1); // 流れない
             _subject2.OnNext(2); // next: 1.  >  next: 2.
-            
+
             _subject2.OnNext(3); // 流れない
             _subject2.OnNext(4); // 流れない
             _subject1.OnNext(5); // next: 5.  >  next: 4.

@@ -21,7 +21,7 @@ namespace _Projects._99_Challenge.チャレンジ問題101
                 {
                     _health.Sub(_blockHitDamage);
                 }
-            });
+            }).AddTo(this);
         }
     }
 }

@@ -9,14 +9,14 @@ namespace _Projects._3_ReactiveProperty._3_2_ToReadOnlyReactiveProperty
         [SerializeField] private SerializableReactiveProperty<float> _maxHeath = new(100);
 
         // 通常のReactivePropertyを使う場合
-        public ReadOnlyReactiveProperty<float> CurrentHeath => _currentHeath;
-        public ReadOnlyReactiveProperty<float> MaxHeath => _maxHeath;
+        public ReadOnlyReactiveProperty<float> CurrentHealth => _currentHeath;
+        public ReadOnlyReactiveProperty<float> MaxHealth => _maxHeath;
 
         // 体力の割合を返すプロパティ
         private ReadOnlyReactiveProperty<float> _rate;
-        // _rateがnullならRateを生成して返す　→　2回目以降は_rateを返す
+        // _rateがnullならRateを生成して返す → 2回目以降は_rateを返す
         // これにより、Rateを2回以上呼び出しても、Observable.CombineLatestは1回しか呼ばれない
-        public ReadOnlyReactiveProperty<float> HeathRate =>　_rate ??=
+        public ReadOnlyReactiveProperty<float> HealthRate => _rate ??=
             Observable.CombineLatest(_currentHeath, _maxHeath)
                 .Select(x => x[0] / x[1]).ToReadOnlyReactiveProperty();
 
@@ -31,9 +31,9 @@ namespace _Projects._3_ReactiveProperty._3_2_ToReadOnlyReactiveProperty
             _maxHeath.AddTo(this);
         }
 
-        public void SetValue(float currentHeath)
+        public void SetValue(float currentHealth)
         {
-            _currentHeath.Value = currentHeath;
+            _currentHeath.Value = currentHealth;
         }
     }
 }

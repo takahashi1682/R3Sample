@@ -11,12 +11,12 @@ namespace _Projects._99_Challenge.チャレンジ問題100
         [SerializeField] private float _downSpeed = 3;
         [SerializeField] private float _moveRange = 2;
 
-        private readonly ReactiveProperty<bool> _isFlay = new();
+        private readonly ReactiveProperty<bool> _isFlying = new();
         private Keyboard _keyboard;
         private Vector3 _startPosition;
         private float _y;
 
-        public ReadOnlyReactiveProperty<bool> IsFlay => _isFlay;
+        public ReadOnlyReactiveProperty<bool> IsFlying => _isFlying;
 
         private void Start()
         {
@@ -27,13 +27,13 @@ namespace _Projects._99_Challenge.チャレンジ問題100
         private void Update()
         {
             // 入力を受け取る
-            _isFlay.Value = _keyboard.spaceKey.isPressed;
+            _isFlying.Value = _keyboard.spaceKey.isPressed;
         }
 
         private void FixedUpdate()
         {
             // 上昇と下降
-            _y += _isFlay.Value
+            _y += _isFlying.Value
                 ? Time.deltaTime * _upSpeed
                 : Time.deltaTime * _downSpeed;
 

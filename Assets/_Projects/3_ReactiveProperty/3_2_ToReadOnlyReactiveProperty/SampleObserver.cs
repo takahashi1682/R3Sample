@@ -17,16 +17,16 @@ namespace _Projects._3_ReactiveProperty._3_2_ToReadOnlyReactiveProperty
         private void Awake()
         {
             // スライダーの設定
-            _slider.maxValue = _program1.MaxHeath.CurrentValue;
-            _slider.value = _program1.CurrentHeath.CurrentValue;
+            _slider.maxValue = _program1.MaxHealth.CurrentValue;
+            _slider.value = _program1.CurrentHealth.CurrentValue;
             _slider.onValueChanged.AddListener(x => _program1.SetValue(x));
 
             // テキストの設定
-            _program1.CurrentHeath
+            _program1.CurrentHealth
                 .Subscribe(x => _currentHeathText.text = x.ToString("N0")).AddTo(this);
-            _program1.MaxHeath
+            _program1.MaxHealth
                 .Subscribe(x => _maxHeathText.text = x.ToString("N0")).AddTo(this);
-            _program1.HeathRate
+            _program1.HealthRate
                 .Subscribe(x => _heathRateText.text = x.ToString("N2")).AddTo(this);
 
             // ToStringにCultureInfo.CurrentCultureを指定すると、カンマ区切りや小数点の表記が実行環境によって変わるようになる

@@ -10,7 +10,7 @@ namespace _Projects._30_UniTask._30_4_cancellationToken
         {
             // このオブジェクトが破棄されたらキャンセルを発行するトークン
             var token = destroyCancellationToken;
-            
+
             // cancellationToken: token とすることで、token がキャンセルされたら処理を中断する
             await UniTask.Delay(TimeSpan.FromSeconds(3), cancellationToken: token); // 3秒待機する
 

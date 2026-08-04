@@ -8,7 +8,7 @@ namespace _Projects._2_Subject._2_2_データを監視する
     /// </summary>
     public class SampleSubject : MonoBehaviour
     {
-        // private　readonly Subject<Unit> _updateSubject = new();
+        // private readonly Subject<Unit> _updateSubject = new();
         // public Subject<Unit> UpdateSubject => _updateSubject;
 
         // 上の2行を省略して1行で書くこともできる

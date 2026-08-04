@@ -54,8 +54,6 @@ namespace _Projects._51_Enum._2_EnumのFlags属性について
             // 設定されているフラグをすべて列挙して出力
             foreach (EEventFlags flag in Enum.GetValues(typeof(EEventFlags)))
             {
-                // if (flag == EEventFlags.None) continue;
-
                 if (_eventFlags.HasFlag(flag))
                 {
                     Debug.Log($"ON: {flag} ({(int)flag})");

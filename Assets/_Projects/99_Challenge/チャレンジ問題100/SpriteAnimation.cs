@@ -8,13 +8,13 @@ namespace _Projects._99_Challenge.チャレンジ問題100
     {
         [SerializeField] private SpriteRenderer _target;
         [SerializeField] private Sprite[] _sprites;
-        [SerializeField] private int _flameRate = 10;
+        [SerializeField] private int _frameRate = 10;
         private int _delayMilliSeconds;
         private int _index;
 
         private void Start()
         {
-            SetFlameRate(_flameRate);
+            SetFrameRate(_frameRate);
             Animation(destroyCancellationToken).Forget();
         }
 
@@ -28,10 +28,10 @@ namespace _Projects._99_Challenge.チャレンジ問題100
             }
         }
 
-        public void SetFlameRate(int flameRate)
+        public void SetFrameRate(int frameRate)
         {
-            _flameRate = flameRate;
-            _delayMilliSeconds = 1000 / flameRate;
+            _frameRate = frameRate;
+            _delayMilliSeconds = 1000 / frameRate;
         }
     }
 }

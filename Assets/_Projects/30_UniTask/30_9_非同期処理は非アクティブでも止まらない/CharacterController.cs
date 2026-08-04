@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 namespace _Projects._30_UniTask._30_9_非同期処理は非アクティブでも止まらない
 {
     public class CharacterController : MonoBehaviour,
-        IPointerClickHandler　// クリックイベントを受け取るためのインターフェース
+        IPointerClickHandler // クリックイベントを受け取るためのインターフェース
     {
         /// <summary>
         /// クリック時に呼ばれるイベント
@@ -14,10 +14,10 @@ namespace _Projects._30_UniTask._30_9_非同期処理は非アクティブでも
         /// <param name="eventData"></param>
         public void OnPointerClick(PointerEventData eventData)
         {
-            // 自信を非表示にする
+            // 自身を非表示にする
             gameObject.SetActive(false);
 
-            // 一定時間後に自信をアクティブにする
+            // 一定時間後に自身をアクティブにする
             ReactivateAfterDelay(destroyCancellationToken).Forget();
         }
 

@@ -25,10 +25,11 @@ namespace _Projects._10_Observableの合成._10_6_Amb
                 ).AddTo(this);
 
             // それぞれのSubjectにデータを流す
-            _subject2.OnNext("Subject2"); // next. 2
+            // Ambは最初に値を発行したSubjectのみを購読し続ける（この場合はsubject2）
+            _subject2.OnNext("Subject2"); // next.Subject2
             _subject1.OnNext("Subject1"); // 流れない
 
-            _subject2.OnNext("Subject2"); // next. 3
+            _subject2.OnNext("Subject2"); // next.Subject2
             _subject1.OnNext("Subject1"); // 流れない
 
             _subject2.OnCompleted(); // completed.

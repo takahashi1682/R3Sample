@@ -23,9 +23,8 @@ namespace _Projects._99_Challenge.チャレンジ問題60
 
             _isRunning.AddTo(this);
             // スタミナが0以下になったら走るのをやめる(1行程度)
-            
+
             // 走るかどうかが変わったら速度を変更する(1行程度)
-            
         }
 
         private void Update()

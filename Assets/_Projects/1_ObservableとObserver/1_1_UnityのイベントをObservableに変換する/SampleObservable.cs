@@ -16,9 +16,9 @@ namespace _Projects._1_ObservableとObserver._1_1_UnityのイベントをObserva
             // R3ではUnityの様々なイベントをObservableに変換することが出来ます
             // これにより非同期処理や複雑なゲームロジックを簡潔に管理することが出来ます
 
-            // マイフレーム呼ばれる処理
+            // 毎フレーム呼ばれる処理
             _target.UpdateAsObservable().Subscribe(_ => { }).AddTo(_target);
-            // マイフレーム（Updateの後に）呼ばれる処理
+            // 毎フレーム（Updateの後に）呼ばれる処理
             _target.LateUpdateAsObservable().Subscribe(_ => { }).AddTo(_target);
             // 固定フレームレートで呼ばれる処理
             _target.FixedUpdateAsObservable().Subscribe(_ => { }).AddTo(_target);
@@ -31,14 +31,14 @@ namespace _Projects._1_ObservableとObserver._1_1_UnityのイベントをObserva
             // このオブジェクトが破棄された時に呼ばれる処理
             _target.OnDestroyAsObservable().Subscribe(_ => Debug.Log("OnDestroyAsObservable")).AddTo(_target);
 
-            // このオブジェクトが可視になった時に呼ばれる処理
+            // このオブジェクトが非表示になった時に呼ばれる処理
             _target.OnBecameInvisibleAsObservable().Subscribe(_ => Debug.Log("OnBecameInvisibleAsObservable")).AddTo(_target);
-            // このオブジェクトが可視でなくなった時に呼ばれる処理
+            // このオブジェクトが表示された時に呼ばれる処理
             _target.OnBecameVisibleAsObservable().Subscribe(_ => Debug.Log("OnBecameVisibleAsObservable")).AddTo(_target);
 
             // このオブジェクトが衝突した時に呼ばれる処理
             _target.OnTriggerEnter2DAsObservable().Subscribe(_ => Debug.Log("OnTriggerEnter2DAsObservable")).AddTo(_target);
-            // このオブジェクトが衝突している間呼ばれる処理
+            // このオブジェクトの衝突が終わった時に呼ばれる処理
             _target.OnTriggerExit2DAsObservable().Subscribe(_ => Debug.Log("OnTriggerExit2DAsObservable")).AddTo(_target);
             // このオブジェクトが衝突している間呼ばれる処理
             _target.OnTriggerStay2DAsObservable().Subscribe(_ => Debug.Log("OnTriggerStay2DAsObservable")).AddTo(_target);
@@ -46,7 +46,7 @@ namespace _Projects._1_ObservableとObserver._1_1_UnityのイベントをObserva
             // このオブジェクトが衝突した時に呼ばれる処理
             _target.OnCollisionEnter2DAsObservable().Subscribe(_ => Debug.Log("OnCollisionEnter2DAsObservable"))
                 .AddTo(_target);
-            // このオブジェクトが衝突している間呼ばれる処理
+            // このオブジェクトの衝突が終わった時に呼ばれる処理
             _target.OnCollisionExit2DAsObservable().Subscribe(_ => Debug.Log("OnCollisionExit2DAsObservable")).AddTo(_target);
             // このオブジェクトが衝突している間呼ばれる処理
             _target.OnCollisionStay2DAsObservable().Subscribe(_ => Debug.Log("OnCollisionStay2DAsObservable")).AddTo(_target);
