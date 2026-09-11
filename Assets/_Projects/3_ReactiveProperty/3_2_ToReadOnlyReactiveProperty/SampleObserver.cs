@@ -1,4 +1,3 @@
-using System.Globalization;
 using R3;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,10 +28,8 @@ namespace _Projects._3_ReactiveProperty._3_2_ToReadOnlyReactiveProperty
             _program1.HealthRate
                 .Subscribe(x => _heathRateText.text = x.ToString("N2")).AddTo(this);
 
-            // ToStringにCultureInfo.CurrentCultureを指定すると、カンマ区切りや小数点の表記が実行環境によって変わるようになる
-            // 日本語環境だと小数点は「.」で区切られるがヨーロッパ圏だと「,」で区切られる
             _program1.IsDead
-                .Subscribe(x => _deadText.text = x.ToString(CultureInfo.CurrentCulture)).AddTo(this);
+                .Subscribe(x => _deadText.text = x.ToString()).AddTo(this);
         }
     }
 }

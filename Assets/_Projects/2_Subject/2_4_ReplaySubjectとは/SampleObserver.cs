@@ -10,7 +10,7 @@ namespace _Projects._2_Subject._2_4_ReplaySubjectとは
     /// </summary>
     public class SampleObserver : MonoBehaviour
     {
-        [SerializeField] private ReplaySubject _target;
+        [SerializeField] private SampleReplaySubject _target;
 
         private async void Awake()
         {

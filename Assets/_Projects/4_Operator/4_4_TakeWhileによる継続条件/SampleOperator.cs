@@ -11,8 +11,9 @@ namespace _Projects._4_Operator._4_4_TakeWhileによる継続条件
         private int _frameCount;
 
         // UI表示用
-        public ReadOnlyReactiveProperty<string> BindText =>
-            UpdateSubject.Select(x => x.ToString()).ToReadOnlyReactiveProperty();
+        private ReadOnlyReactiveProperty<string> _bindText;
+        public ReadOnlyReactiveProperty<string> BindText => _bindText ??=
+            UpdateSubject.Select(x => x.ToString()).ToReadOnlyReactiveProperty().AddTo(this);
 
         private void Start()
         {

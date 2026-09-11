@@ -7,7 +7,6 @@ namespace _Projects._99_Challenge.チャレンジ問題101
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private Health _health;
         [SerializeField] private HitDamage _hitDamage;
         [SerializeField] private string _blockLayerName = "Block";
         [SerializeField] private float _blockHitDamage = 100;
@@ -19,7 +18,7 @@ namespace _Projects._99_Challenge.チャレンジ問題101
             {
                 if (x.gameObject.layer == LayerMask.NameToLayer(_blockLayerName))
                 {
-                    _health.Sub(_blockHitDamage);
+                    _hitDamage.ApplyDamage(_blockHitDamage);
                 }
             }).AddTo(this);
         }

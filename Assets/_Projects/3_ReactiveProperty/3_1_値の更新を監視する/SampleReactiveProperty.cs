@@ -7,7 +7,7 @@ namespace _Projects._3_ReactiveProperty._3_1_値の更新を監視する
     /// <summary>
     /// イベントを発行するクラス
     /// </summary>
-    public class ReactiveProperty : MonoBehaviour
+    public class SampleReactiveProperty : MonoBehaviour
     {
         // Inspectorに表示する場合の宣言の仕方
         [SerializeField] private SerializableReactiveProperty<int> _count1 = new(0);

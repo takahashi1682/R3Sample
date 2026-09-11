@@ -1,7 +1,7 @@
 using R3;
 using UnityEngine;
 
-namespace _Projects._10_Observableの合成._10_4_ZipLastest
+namespace _Projects._10_Observableの合成._10_4_ZipLatest
 {
     public class Program : MonoBehaviour
     {

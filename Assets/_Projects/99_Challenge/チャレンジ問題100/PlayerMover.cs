@@ -8,7 +8,7 @@ namespace _Projects._99_Challenge.チャレンジ問題100
     {
         [SerializeField] private SpriteAnimation _animation;
         [SerializeField] private float _upSpeed = 2;
-        [SerializeField] private float _downSpeed = 3;
+        [SerializeField] private float _downSpeed = -3;
         [SerializeField] private float _moveRange = 2;
 
         private readonly ReactiveProperty<bool> _isFlying = new();

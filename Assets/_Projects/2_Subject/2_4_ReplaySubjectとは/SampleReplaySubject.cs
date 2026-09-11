@@ -6,7 +6,7 @@ namespace _Projects._2_Subject._2_4_ReplaySubjectとは
     /// <summary>
     ///  イベントを発行するクラス
     /// </summary>
-    public class ReplaySubject : MonoBehaviour
+    public class SampleReplaySubject : MonoBehaviour
     {
         public ReplaySubject<int> TestSubject { get; } = new();
 

@@ -8,7 +8,7 @@ namespace _Projects._3_ReactiveProperty._3_1_値の更新を監視する
     /// </summary>
     public class SampleObserver : MonoBehaviour
     {
-        [SerializeField] private ReactiveProperty _program1;
+        [SerializeField] private SampleReactiveProperty _program1;
 
         private void Awake()
         {

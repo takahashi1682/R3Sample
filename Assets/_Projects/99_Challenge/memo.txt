@@ -12,7 +12,7 @@ _recovery.Subscribe(x => _health.Add(x)).AddTo(this);
 .Select(x => x * 3)
 
 問5
-[SerializeField] private SerializableReactiveProperty<int> _count = new(1000);
+[SerializeField] private SerializableReactiveProperty<int> _count = new(2000);
 
 問6
 Observable.Interval(TimeSpan.FromSeconds(1))
@@ -25,7 +25,7 @@ Observable.Interval(TimeSpan.FromSeconds(1))
 using UnityEngine;
 using R3;
 
-namespace Projects._99_Challenge.チャレンジ問題7
+namespace _Projects._99_Challenge.チャレンジ問題7
 {
     public class CubeFactory : MonoBehaviour
     {
@@ -42,6 +42,44 @@ namespace Projects._99_Challenge.チャレンジ問題7
         }
     }
 }
+
+問8
+// Challenge.cs
+private readonly Subject<Collider2D> _onFireHit = new();
+public Observable<Collider2D> OnFireHit => _onFireHit;
+
+private void Start()
+{
+    _onFireHit.AddTo(this);
+    _player.OnTriggerEnter2DAsObservable().Subscribe(_onFireHit.OnNext).AddTo(this);
+    ...
+}
+
+// Observer.cs
+private void Start()
+{
+    _challenge.OnFireHit.Subscribe(OnHit).AddTo(this);
+}
+
+問9
+// PlayerUI.cs
+private void Start()
+{
+    _player.Value.Rate.Subscribe(x => _hpSlider.value = x).AddTo(this);
+
+    Observable.CombineLatest(_player.Value.Current, _player.Value.Max, (current, max) => $"{current}/{max}")
+        .Subscribe(x => _hpText.text = x).AddTo(this);
+}
+
+問10
+Observable.Merge(_oddTimer.Time, _evenTimer.Time)
+    .Subscribe(x => _time.Value = x)
+    .AddTo(this);
+
+問11
+Observable.CombineLatest(_player, _enemy)
+    .Subscribe(x => Judge(x[0], x[1]))
+    .AddTo(this);
 
 問12
 Observable.CombineLatest(_playerReady, _enemyReady)
@@ -74,4 +112,66 @@ private void RemoveStatus(EStatusEffect status)
 private bool HasStatus(EStatusEffect status)
 {
     return _currentStatus.HasFlag(status);
+}
+
+問30
+// BomController.cs
+private void Start()
+{
+    Observable.Timer(TimeSpan.FromSeconds(_explosionTime))
+        .Subscribe(_ =>
+        {
+            _target.sprite = _explosionSprite;
+            transform.localScale *= 3;
+        })
+        .AddTo(this);
+
+    Observable.Timer(TimeSpan.FromSeconds(_explosionTime + 1))
+        .Subscribe(_ => Destroy(gameObject))
+        .AddTo(this);
+}
+
+問31
+public void OnStartButtonClicked()
+{
+    if (_isRunning) return;
+
+    OnStart.OnNext(Unit.Default);
+    _cts = new CancellationTokenSource();
+    TimerTask(_cts).Forget();
+    _isRunning = true;
+}
+
+public void OnCancelButtonClicked()
+{
+    _currentTime.Value = 0;
+    _isRunning = false;
+    _cts.Cancel();
+}
+
+private async UniTask TimerTask(CancellationTokenSource token)
+{
+    while (_currentTime.Value < _maxInterval && !token.IsCancellationRequested)
+    {
+        _currentTime.Value += Time.deltaTime;
+        await UniTask.Yield(token.Token);
+    }
+
+    OnComplete.OnNext(Unit.Default);
+}
+
+問32
+private async UniTask SpawnBlocks()
+{
+    var offsetX = (_width - 1) / 2f;
+
+    for (var y = 0; y < _height; y++)
+    {
+        for (var x = 0; x < _width; x++)
+        {
+            var pos = new Vector3(x - offsetX, _spawnHeight + y, 0);
+            Instantiate(_blockPrefab, pos, Quaternion.identity);
+            await UniTask.Delay(TimeSpan.FromSeconds(_spawnInterval));
+        }
+    }
 }

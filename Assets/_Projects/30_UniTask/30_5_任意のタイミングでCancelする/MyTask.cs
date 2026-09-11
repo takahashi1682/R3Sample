@@ -22,5 +22,11 @@ namespace _Projects._30_UniTask._30_5_任意のタイミングでCancelする
             // トークンをキャンセルする
             _token.Cancel();
         }
+
+        private void OnDestroy()
+        {
+            // オブジェクト破棄時にトークンを破棄する
+            _token.Dispose();
+        }
     }
 }

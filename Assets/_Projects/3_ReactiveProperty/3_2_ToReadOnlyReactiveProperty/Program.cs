@@ -18,12 +18,12 @@ namespace _Projects._3_ReactiveProperty._3_2_ToReadOnlyReactiveProperty
         // これにより、Rateを2回以上呼び出しても、Observable.CombineLatestは1回しか呼ばれない
         public ReadOnlyReactiveProperty<float> HealthRate => _rate ??=
             Observable.CombineLatest(_currentHeath, _maxHeath)
-                .Select(x => x[0] / x[1]).ToReadOnlyReactiveProperty();
+                .Select(x => x[0] / x[1]).ToReadOnlyReactiveProperty().AddTo(this);
 
         // 体力が0以下かどうかを返すプロパティ
         private ReadOnlyReactiveProperty<bool> _isDead;
         public ReadOnlyReactiveProperty<bool> IsDead => _isDead ??=
-            _currentHeath.Select(x => x <= 0).ToReadOnlyReactiveProperty();
+            _currentHeath.Select(x => x <= 0).ToReadOnlyReactiveProperty().AddTo(this);
 
         private void Awake()
         {

@@ -12,7 +12,9 @@ namespace _Projects._4_Operator._4_5_ThrottleFirstによる時間指定
         [SerializeField] private Button _button;
 
         private readonly ReactiveProperty<int> _count = new(0);
-        public ReadOnlyReactiveProperty<string> BindText => _count.Select(x => x.ToString()).ToReadOnlyReactiveProperty();
+        private ReadOnlyReactiveProperty<string> _bindText;
+        public ReadOnlyReactiveProperty<string> BindText => _bindText ??=
+            _count.Select(x => x.ToString()).ToReadOnlyReactiveProperty().AddTo(this);
 
         public void Start()
         {
