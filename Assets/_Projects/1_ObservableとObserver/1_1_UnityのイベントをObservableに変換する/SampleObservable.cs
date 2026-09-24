@@ -1,3 +1,4 @@
+using System;
 using R3;
 using R3.Triggers;
 using UnityEngine;
@@ -10,14 +11,18 @@ namespace _Projects._1_ObservableとObserver._1_1_UnityのイベントをObserva
     public class SampleObservable : MonoBehaviour
     {
         [SerializeField] private GameObject _target;
-
+        
         private void Awake()
         {
             // R3ではUnityの様々なイベントをObservableに変換することが出来ます
             // これにより非同期処理や複雑なゲームロジックを簡潔に管理することが出来ます
 
             // 毎フレーム呼ばれる処理
-            _target.UpdateAsObservable().Subscribe(_ => { }).AddTo(_target);
+            _target.UpdateAsObservable().Subscribe(_ =>
+            {
+                // 毎フレーム呼ばれる処理
+            }).AddTo(_target);
+            
             // 毎フレーム（Updateの後に）呼ばれる処理
             _target.LateUpdateAsObservable().Subscribe(_ => { }).AddTo(_target);
             // 固定フレームレートで呼ばれる処理

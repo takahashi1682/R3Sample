@@ -5,25 +5,31 @@ namespace _Projects._3_ReactiveProperty._3_2_ToReadOnlyReactiveProperty
 {
     public class Program : MonoBehaviour
     {
-        [SerializeField] private SerializableReactiveProperty<float> _currentHeath = new(100);
-        [SerializeField] private SerializableReactiveProperty<float> _maxHeath = new(100);
+        [SerializeField] private SerializableReactiveProperty<float> _currentHeath = new(100); // 現在の体力
+        [SerializeField] private SerializableReactiveProperty<float> _maxHeath = new(100); // 最大体力
 
         // 通常のReactivePropertyを使う場合
         public ReadOnlyReactiveProperty<float> CurrentHealth => _currentHeath;
         public ReadOnlyReactiveProperty<float> MaxHealth => _maxHeath;
 
         // 体力の割合を返すプロパティ
-        private ReadOnlyReactiveProperty<float> _rate;
+        private ReadOnlyReactiveProperty<float> _rate; // null
+        
         // _rateがnullならRateを生成して返す → 2回目以降は_rateを返す
         // これにより、Rateを2回以上呼び出しても、Observable.CombineLatestは1回しか呼ばれない
         public ReadOnlyReactiveProperty<float> HealthRate => _rate ??=
-            Observable.CombineLatest(_currentHeath, _maxHeath)
-                .Select(x => x[0] / x[1]).ToReadOnlyReactiveProperty().AddTo(this);
+            Observable.CombineLatest(_currentHeath, _maxHeath) // 引数で指定したストリームを監視し、いずれかの値が変化したら処理を実行する
+                .Select(x => x[0] / x[1]) // 受け取った値を新しい値に変換する
+                .ToReadOnlyReactiveProperty() // 新しい値をReadOnlyReactivePropertyに変換する
+                .AddTo(this);
 
         // 体力が0以下かどうかを返すプロパティ
         private ReadOnlyReactiveProperty<bool> _isDead;
         public ReadOnlyReactiveProperty<bool> IsDead => _isDead ??=
-            _currentHeath.Select(x => x <= 0).ToReadOnlyReactiveProperty().AddTo(this);
+            _currentHeath
+                .Select(x => x <= 0)
+                .ToReadOnlyReactiveProperty()
+                .AddTo(this);
 
         private void Awake()
         {

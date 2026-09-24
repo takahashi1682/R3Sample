@@ -4,11 +4,11 @@ using R3;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Projects._4_Operator._4_5_ThrottleFirstによる時間指定
+namespace _Projects._4_Operator._4_8_Switchによる購読切り替え
 {
     public class SampleOperator : MonoBehaviour, ITextBinder
     {
-        [SerializeField] private float _waitSeconds = 1;
+        [SerializeField] private float _interval = 1;
         [SerializeField] private Button _button;
 
         private readonly ReactiveProperty<int> _count = new(0);
@@ -20,9 +20,16 @@ namespace _Projects._4_Operator._4_5_ThrottleFirstによる時間指定
         {
             _count.AddTo(this);
 
-            // ボタンの押下を監視
+            // ボタンを押すたびに「_interval秒ごとに通知するObservable」を新しく作る
+            // → Observable<Observable<Unit>> になる
             _button.OnClickAsObservable()
-                .ThrottleFirst(TimeSpan.FromSeconds(_waitSeconds)　) // クリックされてから1秒間は何もしない
+                .Select(_ =>
+                {
+                    _count.Value = 0; // カウントをリセット
+                    return Observable.Interval(TimeSpan.FromSeconds(_interval)); // 新しいObservableを返す
+                })
+                // 最後に作られたObservableだけを購読し、以前のObservableの購読は自動で解除する
+                .Switch()
                 .Subscribe(_ => _count.Value++)
                 .AddTo(this);
         }
